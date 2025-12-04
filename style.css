@@ -1,0 +1,299 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at bottom, #313943 0%, #090a0f 100%);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Snowflakes */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+  user-select: none;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* 3D Container */
+.scene {
+  perspective: 1000px;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  z-index: 10; /* Above snow */
+}
+
+.gift-box {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
+}
+
+/* Box Body */
+.box-body {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, #df5b5b 0%, #8a0000 100%);
+  border-radius: 4px;
+  box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Box Ribbon Vertical */
+.box-ribbon {
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #ee6436, #ec835c, #f3a56c);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.box-ribbon::before, .box-ribbon::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: rgba(255,255,255,0.3);
+}
+.box-ribbon::before { left: 4px; }
+.box-ribbon::after { right: 4px; }
+
+/* Box Lid */
+.box-lid {
+  position: absolute;
+  top: -20px; 
+  left: -10px;
+  width: 180px;
+  height: 50px;
+  background: linear-gradient(135deg, #d91818 0%, #a80000 100%);
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+  z-index: 10;
+  transform-origin: top center;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s;
+}
+
+/* Lid Ribbons */
+.lid-ribbon-v {
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #ee6436, #ec835c, #f3a56c);
+}
+
+.lid-ribbon-h {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(to bottom, #ee6436, #ec835c, #f3a56c);
+}
+
+/* The Bow */
+.bow {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 50px;
+}
+
+.bow-left, .bow-right {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e13011;
+  background: #d4af37;
+  border-radius: 50%;
+  top: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.bow-left {
+  left: 0;
+  border-bottom-right-radius: 0;
+  transform: rotate(-15deg);
+  background: radial-gradient(circle at 30% 30%, #faa2a2, #ee3346);
+}
+
+.bow-right {
+  right: 0;
+  border-bottom-left-radius: 0;
+  transform: rotate(15deg);
+  background: radial-gradient(circle at 70% 30%, #faa2a2, #ee3346);
+}
+
+.bow-center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ea2f16;
+  border-radius: 50%;
+  left: 50%;
+  top: 30px;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px) rotate(-5deg); }
+  20%, 40%, 60%, 80% { transform: translateX(5px) rotate(5deg); }
+}
+
+.shaking {
+  animation: shake 1s ease-in-out;
+}
+
+.open .box-lid {
+  transform: translateY(-120px) rotateX(-20deg) rotateY(15deg);
+  opacity: 0;
+}
+
+/* Popup Message */
+.message-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  width: 370px;
+  color: #333;
+  background: rgba(248, 215, 215, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  border: 2px solid rgba(247, 49, 49, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 100;
+}
+
+.message-card.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  top: 50%; 
+}
+
+.open-btn {
+  font-family: "Nova Round", system-ui;
+  font-size: 14px;
+  align-items: center;
+  padding: 3px 8px 3px;
+  background: #f16060;
+  border: 2px solid #ba3c3c;
+  border-radius: 100px;
+  transition: transform 0.7s ease, color 0.7s ease;
+    
+  box-shadow:
+    0 3px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+  
+.open-btn:hover {
+  background-image: radial-gradient( #d96c6c, #c88282); 
+  transform: scale(1.08);    
+  cursor: pointer;  
+}
+
+.open-btn a {
+  text-decoration: none;
+  color: #131212;
+  font-weight: 600;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.close-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.shortMess {
+  margin-top: 30px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.shortMess i{
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  color: #a9a3a3;
+}
+
+.hint {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.hint span {
+  background: rgba(0,0,0,0.1);
+  color: #555;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.hint.hidden {
+  opacity: 0;
+}
