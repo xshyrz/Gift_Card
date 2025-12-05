@@ -69,8 +69,9 @@ p {
 .scene {
   perspective: 1000px;
   position: relative;
-  width: 200px;
-  height: 200px;
+  margin-top: 100px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -80,8 +81,9 @@ p {
 
 .gift-box {
   position: relative;
-  width: 160px;
-  height: 160px;
+  margin-top: 30px;
+  width: 100px;
+  height: 100px;
   transform-style: preserve-3d;
   transition: transform 0.1s;
 }
@@ -148,7 +150,7 @@ p {
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(to right, #ee6436, #ec835c, #f3a56c);
+  background: linear-gradient(to right, #d91818, #ec835c, #d91818);
 }
 
 .lid-ribbon-h {
@@ -163,17 +165,17 @@ p {
 /* The Bow */
 .bow {
   position: absolute;
-  top: -40px;
+  top: -35px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
 }
 
 .bow-left, .bow-right {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border: 4px solid #e13011;
   background: #d4af37;
   border-radius: 50%;
@@ -197,12 +199,12 @@ p {
 
 .bow-center {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background: #ea2f16;
   border-radius: 50%;
   left: 50%;
-  top: 30px;
+  top: 32px;
   transform: translate(-50%, -50%);
   box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
   z-index: 2;
@@ -312,24 +314,24 @@ p {
 
 .hint {
   position: absolute;
-  bottom: -60px;
-  left: 0;
-  width: 100%;
+  bottom: -40px;
   text-align: center;
+  justify-content: center;
+  width: 150%;
   opacity: 1;
   transition: opacity 0.3s;
 }
 
 .hint span {
-  background: rgba(0,0,0,0.1);
-  color: #555;
+  background: #c8b7b71a;
+  color: #a59e9e;
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   backdrop-filter: blur(4px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(255, 200, 200, 0.1);
 }
 
 .hint.hidden {
