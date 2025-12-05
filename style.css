@@ -33,6 +33,7 @@ body {
 .merry {
   font-size: 90px; 
   font-family: 'Great Vibes', cursive; 
+  font-weight: 100;
   margin-top: 20px; 
   margin-bottom: 15px;
   color: #ef4d4d;
@@ -87,6 +88,7 @@ p {
   height: 100px;
   transform-style: preserve-3d;
   transition: transform 0.1s;
+  animation: box 0.8s ease-in-out infinite;
 }
 
 /* Box Body */
@@ -231,6 +233,11 @@ p {
   0% { transform: scale(1); }
   50% { transform: scale(1.02); }
   100% { transform: scale(1); }
+}
+
+@keyframes box {
+  0%, 100% {transform: translateY(0);}
+  50% { transform: translateY(-8px);}
 }
 
 /* Popup Message */
