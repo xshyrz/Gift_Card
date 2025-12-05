@@ -30,16 +30,17 @@ body {
   text-align: center;
 }
 
-h1 {
+.merry {
   font-size: 90px; 
   font-family: 'Great Vibes', cursive; 
   margin-top: 20px; 
   margin-bottom: 15px;
-  color: #c41e1e;
+  color: #ef4d4d;
+  animation: merry 5s ease-in-out infinite;
 }
 
 p {
-  color: #b9bcbc; 
+  color: #ecf3f3; 
   font-family: 'Concert One', sans-serif;
 }
 
@@ -224,6 +225,12 @@ p {
 .open .box-lid {
   transform: translateY(-120px) rotateX(-20deg) rotateY(15deg);
   opacity: 0;
+}
+
+@keyframes merry {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 
 /* Popup Message */
