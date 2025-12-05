@@ -5,10 +5,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(ellipse at bottom, #313943 0%, #090a0f 100%);
-  font-family: system-ui, -apple-system, sans-serif;
   overflow: hidden;
   color: #fff;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-image: url('download.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px); /* blur the image itself */
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.4); /* dark layer */
 }
 
 /* Snowflakes */
