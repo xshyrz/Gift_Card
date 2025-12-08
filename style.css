@@ -334,18 +334,11 @@ p {
 }
 
 .shortMess {
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 0;
   font-size: 16px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-}
-
-.shortMess i{
-  font-size: 16px;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color: #a9a3a3;
 }
 
 .christmas3 {
@@ -355,7 +348,7 @@ p {
 }
 
 .messButton {
-  margin-top: 28px;
+  margin-top: 30px;
   margin-left: 10px;
 }
 
