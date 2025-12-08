@@ -24,9 +24,10 @@ header {
 }
 
 .title {
-    font-size: 2.2rem;
+    font-family: 'Great Vibes', cursive; 
+    font-size: 2.9rem;
     font-weight: 800;
-    color: #6a5acd;
+    color: #e770d3;
     letter-spacing: 0.5px;
 }
 
@@ -127,38 +128,33 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Birthday goodies row (balloons, cake, gifts) */
-.goodies {
+/* Birthday qoute row (balloons, cake, gifts) */
+.qoute-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 24px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-.goodie {
+.qoute {
     background: #fff;
     border-radius: 16px;
+    text-align: center;
     padding: 16px;
     text-align: center;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
 }
 
-.goodie .emoji {
-    font-size: 2rem;
-    display: inline-block;
-    animation: float 2.8s ease-in-out infinite;
-}
-
-.goodie h3 {
-    margin: 10px 0 6px;
-    color: #6a5acd;
-    font-size: 1.05rem;
-}
-
-.goodie p {
+.qoute p {
     margin: 0;
     font-size: 0.92rem;
     color: #555;
+    font-style: italic;
+    display: inline-block;
+    animation: float 2.8s ease-in-out infinite;
 }
 
 /* Footer note */
