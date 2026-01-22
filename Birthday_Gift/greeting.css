@@ -84,6 +84,7 @@ header {
     display: flex;
     gap: 12px;
     margin-top: 16px;
+    margin-left: 115px;
     flex-wrap: wrap;
 }
 
@@ -97,6 +98,7 @@ header {
 }
 
 .btn-primary {
+    margin-top: 50px;
     background: linear-gradient(135deg, #ff6fa5, #ff9ec5);
     color: #fff;
     box-shadow: 0 6px 16px rgba(255, 111, 165, 0.35);
@@ -110,6 +112,12 @@ header {
 
 .btn:hover {
     transform: translateY(-1px);
+}
+
+.underCelebBtn {
+    font-size: 10px;
+    color: #756d6d;
+    text-align: center;
 }
 
 /* Photo gallery */
